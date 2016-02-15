@@ -3,13 +3,15 @@ var safeEval = require('safe-eval');
 
 var StringToBSON = function () {
 
+
+
     /**
      * Parse a string to a javascript object with BSON types
      * @param  {[type]} string [description]
      * @return {[type]}        [description]
      */
-    this.parse = function(string, context) {
-        return safeEval(string);
+    this.parse = function(string) {
+        return safeEval(string, context);
     };
 
     /**
@@ -18,7 +20,11 @@ var StringToBSON = function () {
      */
     var context = {
         ObjectID : function(id) {
-            return mongojs.ObjectID.isValid(id) ? new mongojs.ObjectID(value) : throw 'Invalid ObjectID : ' + id;
+            try {
+                return new mongojs.ObjectID(id);
+            } catch(err) {
+                throw 'Invalid ObjectID: ' + id;
+            }
         },
         ISODate : function(ISOString) {
             return new Date(ISOString);
