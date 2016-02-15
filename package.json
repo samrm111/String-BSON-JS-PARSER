@@ -1,5 +1,5 @@
 {
-  "name": "StringToBSON.js",
+  "name": "stringtobsonjs",
   "version": "0.0.1",
   "description": "A simple String To BSON parsing library in javascript",
   "author": "Samuel Rondeau-Millaire <contact@samrm.io>",

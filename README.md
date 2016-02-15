@@ -7,8 +7,13 @@ This parser only creates the following js objects for now :
 
 
 ### Usage
+
+```
+npm install stringtobsonjs --save
+```
+
 ```javascript
-var parser = require('StringToBSON.js');
+var parser = require('stringtobsonjs');
 
 var string = "{_id: ObjectID('56bdf41a6a0da0d00254cc2a'), born_on: ISODate(2012-02-12), ms_in_life: NumberLong('31242314123421342'), expire: new Date(2012-02-01)}";
 
