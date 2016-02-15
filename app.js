@@ -1,7 +1,7 @@
 var mongojs = require('mongojs');
 var safeEval = require('safe-eval');
 
-var StringToBSON = function () {
+module.exports = function () {
 
 
 
@@ -37,5 +37,3 @@ var StringToBSON = function () {
         }
     };
 }
-
-module.exports = new StringToBSON();
