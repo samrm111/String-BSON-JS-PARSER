@@ -1,0 +1,30 @@
+{
+  "name": "StringToBSON.js",
+  "version": "0.0.1",
+  "description": "A simple String To BSON parsing library in javascript",
+  "author": "Samuel Rondeau-Millaire <contact@samrm.io>",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samrm111/StringToBSON.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samrm111/StringToBSON.js.git/issues"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "mongodb",
+    "string",
+    "BSON",
+    "json",
+    "js",
+    "javascript"
+  ],
+  "dependencies": {
+    "mongojs": "^2.3.0",
+    "safe-eval": "^0.2.0"
+  },
+  "license": "MIT"
+}
