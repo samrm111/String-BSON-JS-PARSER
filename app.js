@@ -59,7 +59,7 @@ var StringToBSON = function() {
         if (obj instanceof mongodb.ObjectID) {
             return 'ObjectID("' + obj.toString() + "\")";
         } else if (obj instanceof Date) {
-            return 'ISOString("' + obj.toString() + "\")";
+            return 'ISODate("' + obj.toString() + "\")";
         } else if (obj instanceof mongojs.Long) {
             return 'NumberLong("' + obj.toString() + "\")";
         } else {

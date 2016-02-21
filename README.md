@@ -45,7 +45,7 @@ The output will be the following string:
 ```
 '{
 _id: ObjectID("56bdf4d36a0da0d00254cc2b"),
-date: ISOString("Wed Feb 01 2012 00:00:00 GMT-0500 (EST)"),
+date: ISODate("Wed Feb 01 2012 00:00:00 GMT-0500 (EST)"),
 long: NumberLong("-4700621707308972927"),
 text: "some text",
 array: ["an",3432,"array"],
