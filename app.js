@@ -31,16 +31,7 @@ var StringToBSON = function() {
         } else if (typeof(obj) == "object" && (obj.join == undefined)) {
             for (prop in obj) {
                 if (obj.hasOwnProperty(prop)) {
-                    if (obj[prop] instanceof mongodb.ObjectID) {
-                        string.push(newline + prop + ': ' + 'ObjectID("' + obj[prop].toString() + "\")");
-                    } else if (obj[prop] instanceof Date) {
-                        string.push(newline + prop + ': ' + 'ISOString("' + obj[prop].toString() + "\")");
-                    } else if (obj[prop] instanceof mongojs.Long) {
-                        string.push(newline + prop + ': ' + 'NumberLong("' + obj[prop].toString() + "\")");
-                    } else {
-                        string.push(newline + prop + ': ' + this.toString(obj[prop]));
-                    }
-
+                    string.push(newline + prop + ': ' + this.typeToString(obj[prop]));
                 }
             };
             return "{" + string.join(",") + newline + "}";
@@ -48,7 +39,7 @@ var StringToBSON = function() {
             //is array
         } else if (typeof(obj) == "object" && !(obj.join == undefined)) {
             for (prop in obj) {
-                string.push(this.toString(obj[prop]));
+                string.push(newline + this.typeToString(obj[prop]));
             }
             return "[" + string.join(",") + "]";
 
@@ -63,6 +54,18 @@ var StringToBSON = function() {
 
         return string.join(",");
     };
+
+    this.typeToString = function(obj) {
+        if (obj instanceof mongodb.ObjectID) {
+            return 'ObjectID("' + obj.toString() + "\")";
+        } else if (obj instanceof Date) {
+            return 'ISOString("' + obj.toString() + "\")";
+        } else if (obj instanceof mongojs.Long) {
+            return 'NumberLong("' + obj.toString() + "\")";
+        } else {
+            return this.toString(obj);
+        }
+    }
 
     /**
      * Context that is passed to the safeEval function containing BSON types
